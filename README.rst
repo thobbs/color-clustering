@@ -14,6 +14,8 @@ Example Output
 --------------
 This is an analysis of J.M.W. Turner's "Ulysses deriding Polyphemus"
 
+.. image:: https://raw.github.com/thobbs/color-clustering/master/turner-ulysses.jpg
+
 .. image:: https://raw.github.com/thobbs/color-clustering/master/turner_analysis.png
 
 Usage
