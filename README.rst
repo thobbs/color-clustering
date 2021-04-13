@@ -12,7 +12,13 @@ The HSV values in the output use the following ranges:
 
 Example Output
 --------------
-This is an analysis of J.M.W. Turner's "Ulysses deriding Polyphemus"
+This is an analysis of Van Gogh's *The Pink Peach Tree*
+
+.. image:: https://raw.github.com/thobbs/color-clustering/master/van-gogh-peach-tree.jpg
+
+.. image:: https://raw.github.com/thobbs/color-clustering/master/van-gogh-peach-tree-analysis.jpg
+
+And an analysis of J.M.W. Turner's *Ulysses deriding Polyphemus*
 
 .. image:: https://raw.github.com/thobbs/color-clustering/master/turner-ulysses.jpg
 
