@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from colorsys import hsv_to_rgb
 from math import sqrt, ceil
@@ -40,7 +40,7 @@ def save_file(fig, size, filename):
     dpi = 100.0
     fig.set_size_inches(size / dpi, size / dpi)
     plt.savefig(filename, facecolor=bgcolor, dpi=dpi)
-    print "Analysis saved as", filename
+    print("Analysis saved as", filename)
 
 
 def prep_figure(size):
@@ -83,7 +83,7 @@ def analyze(filename, num_means, rounds):
     means, _ = kmeans(whitened, num_means, iter=rounds)
     unwhitened = means * stdev
 
-    unwhitened = map(tuple, unwhitened)
+    unwhitened = list(map(tuple, unwhitened))
     unwhitened.sort()
 
     # count the number of pixels that are closest to each centroid
@@ -105,7 +105,7 @@ def draw_color_patches(means, match_counts, size, ax):
     height = size / num_rows
     for i, mean in enumerate(means):
         rgb_mean = hsv_to_rgb(*mean)
-        rgb_mean = map(lambda x: x * 256.0, rgb_mean)
+        rgb_mean = [x * 256.0 for x in rgb_mean]
         x_coord = width * (i % num_rows)
         y_coord = height * ((num_rows - 1) - (i // num_rows))
 
@@ -138,16 +138,16 @@ def parse_options():
     options, args = parser.parse_args()
 
     if options.kmeans <= 0:
-        print >>sys.stderr, "--kmeans must have a positive value"
+        print("--kmeans must have a positive value", file=sys.stderr)
         sys.exit(1)
     if options.rounds <= 0:
-        print >>sys.stderr, "--rounds must have a positive value"
+        print("--rounds must have a positive value", file=sys.stderr)
         sys.exit(1)
     if options.size <= 0:
-        print >>sys.stderr, "--size must have a positive value"
+        print("--size must have a positive value", file=sys.stderr)
         sys.exit(1)
     if len(args) > 1:
-        print >>sys.stderr, "Expected one argument, but got %d" % len(args)
+        print("Expected one argument, but got %d" % len(args), file=sys.stderr)
         sys.exit(1)
 
     return options, args
