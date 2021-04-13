@@ -70,8 +70,7 @@ def analyze(filename, num_means, rounds):
     flat_img = np.asarray(img)
 
     # convert from rgb to hsv (all values in range [0, 1])
-    flat_img = np.apply_along_axis(
-        lambda a: (a[0] / 255.0, a[1] / 255.0, a[2] / 255.0), 2, flat_img)
+    flat_img = flat_img / 255.0
     flat_img = matplotlib.colors.rgb_to_hsv(flat_img)
 
     # reshape to an Nx3 array
